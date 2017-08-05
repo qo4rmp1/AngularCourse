@@ -21,11 +21,11 @@ export class CardsComponent implements OnInit {
     // this.type = this.route.snapshot.params['type'];
     this.route.params.subscribe(params => {
       this.type = params['type'],
-      this.action1 = params['num']
+      this.action1 = params['num']  //matrix URL
     });
 
     this.route.queryParams.subscribe(params => {
-      this.action2 = params['num']
+      this.action2 = params['num']  //QueryString
     })
 
   }
