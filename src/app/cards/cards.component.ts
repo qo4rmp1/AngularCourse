@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   type = '';
+  public action1: string = '';
+  public action2: string = '';
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
@@ -17,7 +19,15 @@ export class CardsComponent implements OnInit {
   //改成Observable的寫法才會被觸發
   ngOnInit() {
     // this.type = this.route.snapshot.params['type'];
-    this.route.params.subscribe(params => {this.type = params['type']});
+    this.route.params.subscribe(params => {
+      this.type = params['type'],
+      this.action1 = params['num']
+    });
+
+    this.route.queryParams.subscribe(params => {
+      this.action2 = params['num']
+    })
+
   }
 
 }
