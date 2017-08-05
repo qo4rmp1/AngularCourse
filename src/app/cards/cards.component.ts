@@ -12,8 +12,12 @@ export class CardsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {
   }
 
+  //當上一個路由和下一個路由相同時，並不會重新載入Component
+  //這時，若參數有改變，使用snapshot就不會被觸發
+  //改成Observable的寫法才會被觸發
   ngOnInit() {
-    this.type = this.route.snapshot.params['type'];
+    // this.type = this.route.snapshot.params['type'];
+    this.route.params.subscribe(params => {this.type = params['type']});
   }
 
 }
