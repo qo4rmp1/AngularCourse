@@ -1,2 +1,7 @@
+import {Route} from '@angular/router';
 
-export const fallbackRoute = {path: '**', redirectTo: '/', pathMatch: 'full'};
+export const fallbackRoute: Route = {
+  path: '**',
+  redirectTo: '/',
+  pathMatch: 'full'
+};
