@@ -5,18 +5,28 @@ import { Page2Component } from './page2/page2.component';
 import { fallbackRoute } from './shared/fallback-route';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'cards/:type', component: CardsComponent},
-  //Step1:路由設定延遲載入
-  {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},
+  //StepB:設定login路由
+  { path: 'login', component: LoginComponent },
+  //StepE:設定layout路由(使用預設路由,並不會在URL多一個字元)
+  {
+    path: '', component: LayoutComponent, children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'cards/:type', component: CardsComponent },
+      //Step1:路由設定延遲載入
+      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' }
+    ]
+  },
+
   fallbackRoute
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: false, preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false, preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
