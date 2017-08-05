@@ -3,10 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FlotComponent } from './flot/flot.component';
 
 const routes: Routes = [
-  {path: 'charts',
-  children: [
-    { path: 'flot', component: FlotComponent}
-  ]}
+  //Step2:修改子路由(path: 'charts'在app-routing已設定)
+  { path: 'flot', component: FlotComponent}
 ];
 
 @NgModule({
