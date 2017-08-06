@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginGuard } from './login.guard';
 import { ClassicComponent } from './forms/classic/classic.component';
+import { Classic2Component } from './forms/classic2/classic2.component';
 
 const routes: Routes = [
   //StepB:設定login路由
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'cards/:type', component: CardsComponent, canActivate: [LoginGuard] },
       //Step1:路由設定延遲載入
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-      { path: 'forms/classic', component: ClassicComponent }
+      { path: 'forms/classic', component: ClassicComponent },
+      { path: 'forms/classic2', component: Classic2Component }
     ]
   },
 
