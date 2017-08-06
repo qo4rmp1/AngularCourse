@@ -18,4 +18,9 @@ export class ClassicComponent implements OnInit {
     debugger
     ctrl.control.disable();
   }
+
+  doSubmit($event, f) {
+    console.log($event);
+    console.log(f);
+  }
 }
