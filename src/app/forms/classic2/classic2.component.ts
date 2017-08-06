@@ -18,11 +18,11 @@ export class Classic2Component implements OnInit {
     group1: this.fb.group({ subtitle: ['World', [Validators.required]] })
     })
   }
-  // (click)="setDisable(form.get('subtitle'))"
-  // setDisable(ctrl: FormControl) {
-  //   debugger
-  //   ctrl.disable();
-  // }
+
+  setDisable(ctrl: FormControl) {
+    debugger
+    ctrl.disable();
+  }
 
   submit() {
     console.log(this.form);

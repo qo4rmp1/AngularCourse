@@ -42,7 +42,7 @@
             <div class="form-group" [class.has-error]="form.get('group1.subtitle').touched && form.get('group1.subtitle').invalid">
               <label class="col-sm-2 control-label">副標題</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" formControlName="subtitle" >
+                <input type="text" class="form-control" formControlName="subtitle"(click)="setDisable(form.get('group1.subtitle'))">
                 <span class="help-block">
                   <span *ngIf="form.get('group1.subtitle').errors?.required">請填入副標題</span>
                   <pre>value     : {{ form.controls.group1.controls.subtitle.value | json }}</pre>
