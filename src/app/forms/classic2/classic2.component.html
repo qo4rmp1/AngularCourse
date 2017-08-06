@@ -42,7 +42,7 @@
             <div class="form-group" [class.has-error]="form.get('group1.subtitle').touched && form.get('group1.subtitle').invalid">
               <label class="col-sm-2 control-label">副標題</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" formControlName="subtitle"(click)="setDisable(form.get('group1.subtitle'))">
+                <input type="text" class="form-control" formControlName="subtitle" (click)="setDisable(form.get('group1.subtitle'))">
                 <span class="help-block">
                   <span *ngIf="form.get('group1.subtitle').errors?.required">請填入副標題</span>
                   <pre>value     : {{ form.controls.group1.controls.subtitle.value | json }}</pre>
@@ -57,6 +57,15 @@
               </div>
             </div>
           </fieldset>
+          <fieldset formArrayName="address" *ngFor="let addr of form.get('address').controls; let i=index">
+            <div class="form-group">
+              <label for="input-id-1" class="col-sm-2 control-label">地址{{ i+ 1}}</label>
+              <div class="col-sm-10">
+                <input id="input-id-1" type="text" class="form-control" [formControlName]="i">
+              </div>
+            </div>
+          </fieldset>
+          <input type="button" value="AddAddress" (click)="addAddress()">
           <input type="submit" value="送出">
           <fieldset>
             <div class="form-group">
