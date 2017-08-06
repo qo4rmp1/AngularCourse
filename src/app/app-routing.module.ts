@@ -8,6 +8,7 @@ import { CardsComponent } from './cards/cards.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginGuard } from './login.guard';
+import { ClassicComponent } from './forms/classic/classic.component';
 
 const routes: Routes = [
   //StepB:設定login路由
@@ -15,12 +16,13 @@ const routes: Routes = [
   //StepE:設定layout路由(使用預設路由,並不會在URL多一個字元)
   {
     path: '', component: LayoutComponent, children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'forms/classic', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       //StepI:修改路由,加上canActivate
       { path: 'cards/:type', component: CardsComponent, canActivate: [LoginGuard] },
       //Step1:路由設定延遲載入
-      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' }
+      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
+      { path: 'forms/classic', component: ClassicComponent }
     ]
   },
 
