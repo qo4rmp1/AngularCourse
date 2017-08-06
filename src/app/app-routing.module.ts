@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'forms/classic', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       //StepI:修改路由,加上canActivate
-      { path: 'cards/:type', component: CardsComponent, canActivate: [LoginGuard] },
+      { path: 'cards/:type', component: CardsComponent },
       //Step1:路由設定延遲載入
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
       { path: 'forms/classic', component: ClassicComponent },
