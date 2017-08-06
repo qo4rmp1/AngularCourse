@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray, AbstractControl } from "@angular/forms";
+
+function mustInKao(ctrl: AbstractControl) {
+  if (ctrl.value.indexOf('高雄') >= 0) {
+    return null;
+  } else {
+    return { 'must-In-Kao': '地址需包含高雄'};
+  }
+}
 
 @Component({
   selector: 'app-classic2',
@@ -31,6 +39,6 @@ export class Classic2Component implements OnInit {
 
   addAddress() {
     let addresses = this.form.get('address') as FormArray;
-    addresses.push(this.fb.control('', [Validators.required]));
+    addresses.push(this.fb.control('', [Validators.required, mustInKao]));
   }
 }
