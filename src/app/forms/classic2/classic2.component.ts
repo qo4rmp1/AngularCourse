@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-classic2',
@@ -14,10 +14,15 @@ export class Classic2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      title: 'Hello',
-      subtitle: 'World'
+    title: ['Hello', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      subtitle: ['World', [Validators.required]],
     })
   }
+  // (click)="setDisable(form.get('subtitle'))"
+  // setDisable(ctrl: FormControl) {
+  //   debugger
+  //   ctrl.disable();
+  // }
 
   submit() {
     console.log(this.form);
