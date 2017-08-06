@@ -8,7 +8,13 @@ import { NgModel } from '@angular/forms';
 })
 export class ClassicComponent implements OnInit {
 
-  data: any = { 'title': 'Hello', 'subtitle': 'World'};
+  data: any = {
+    'title': 'Hello',
+    'subtitle': 'World',
+    'address': []
+  };
+
+  addresses = [0,1,2]
   constructor() { }
 
   ngOnInit() {
@@ -22,5 +28,9 @@ export class ClassicComponent implements OnInit {
   doSubmit($event, f) {
     console.log($event);
     console.log(f);
+  }
+
+  addAddress() {
+    this.addresses.push(this.addresses.length);
   }
 }
