@@ -2,17 +2,27 @@
   <div class="container-fluid">
     <h5 class="mt0">Classic form controls and custom variants</h5>
     <div class="mb-lg">
-      <pre>f.value = {{ f.value | json}}</pre>
       <pre>data = {{ data | json}}</pre>
+      <pre>f.value = {{ f.value | json}}</pre>
+      <pre>f.value     : {{ f.value | json }}</pre>
+      <pre>f.touched   : {{ f.touched | json }}</pre>
+      <pre>f.untouched : {{ f.untouched | json }}</pre>
+      <pre>f.pristine  : {{ f.pristine | json }}</pre>
+      <pre>f.dirty     : {{ f.dirty | json }}</pre>
+      <pre>f.valid     : {{ f.valid | json }}</pre>
+      <pre>f.invalid   : {{ f.invalid | json }}</pre>
+      <pre>f.errors    : {{ f.errors | json }}</pre>
+      <pre>f.enabled   : {{ f.enabled | json }}</pre>
+      <pre>f.disabled  : {{ f.disabled | json }}</pre>
     </div>
     <div class="card">
       <div class="card-body">
         <form #f="ngForm" class="form-horizontal">
           <fieldset>
-            <div class="form-group" [class.has-error]="mTitle.invalid">
+            <div class="form-group" [class.has-error]="mTitle.touched && mTitle.invalid">
               <label class="col-sm-2 control-label">標題</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded" [(ngModel)]="data.title" name="title" #mTitle="ngModel" required>
+                <input (click)="setDisable(mTitle)" type="text" class="form-control rounded" [(ngModel)]="data.title" name="title" #mTitle="ngModel" required minlength="0" maxlength="100">
                 <span class="help-block">
                   <span *ngIf="mTitle.errors?.required">請填入標題</span>
                   <pre>value     : {{ mTitle.value | json }}</pre>
@@ -23,15 +33,17 @@
                   <pre>valid     : {{ mTitle.valid | json }}</pre>
                   <pre>invalid   : {{ mTitle.invalid | json }}</pre>
                   <pre>errors    : {{ mTitle.errors | json }}</pre>
+                  <pre>enabled   : {{ mTitle.enabled | json }}</pre>
+                  <pre>disabled  : {{ mTitle.disabled | json }}</pre>
                 </span>
               </div>
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group" [class.has-error]="mSubtitle.invalid">
+            <div class="form-group" [class.has-error]="mSubtitle.touched && mSubtitle.invalid">
               <label class="col-sm-2 control-label">副標題</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" [(ngModel)]="data.subtitle" name="subtitle" #mSubtitle="ngModel" required>
+                <input (click)="setDisable(mSubtitle)" type="text" class="form-control" [(ngModel)]="data.subtitle" name="subtitle" #mSubtitle="ngModel" required minlength="0" maxlength="100" >
                 <span class="help-block">
                   <span *ngIf="mSubtitle.errors?.required">請填入副標題</span>
                   <pre>value     : {{ mSubtitle.value | json }}</pre>
