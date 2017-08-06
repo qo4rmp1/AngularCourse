@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, FormArray, AbstractControl } from "@angular/forms";
-
-function mustInKao(ctrl: AbstractControl) {
-  if (ctrl.value.indexOf('高雄') >= 0) {
-    return null;
-  } else {
-    return { 'must-In-Kao': '地址需包含高雄'};
-  }
-}
+import { mustInKao } from '../../shared/mustInKao';
 
 @Component({
   selector: 'app-classic2',
