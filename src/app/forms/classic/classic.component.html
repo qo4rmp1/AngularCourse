@@ -9,9 +9,9 @@
       <div class="card-body">
         <form #f="ngForm" class="form-horizontal">
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="mTitle.invalid">
               <label class="col-sm-2 control-label">標題</label>
-              <div class="col-sm-10" [class.has-error]="mTitle.errors">
+              <div class="col-sm-10">
                 <input type="text" class="form-control rounded" [(ngModel)]="data.title" name="title" #mTitle="ngModel" required>
                 <span class="help-block">
                   <span *ngIf="mTitle.errors?.required">請填入標題</span>
@@ -20,15 +20,17 @@
                   <pre>untouched : {{ mTitle.untouched | json }}</pre>
                   <pre>pristine  : {{ mTitle.pristine | json }}</pre>
                   <pre>dirty     : {{ mTitle.dirty | json }}</pre>
+                  <pre>valid     : {{ mTitle.valid | json }}</pre>
+                  <pre>invalid   : {{ mTitle.invalid | json }}</pre>
                   <pre>errors    : {{ mTitle.errors | json }}</pre>
                 </span>
               </div>
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="mSubtitle.invalid">
               <label class="col-sm-2 control-label">副標題</label>
-              <div class="col-sm-10" [class.has-error]="mSubtitle.errors">
+              <div class="col-sm-10">
                 <input type="text" class="form-control" [(ngModel)]="data.subtitle" name="subtitle" #mSubtitle="ngModel" required>
                 <span class="help-block">
                   <span *ngIf="mSubtitle.errors?.required">請填入副標題</span>
@@ -37,6 +39,8 @@
                   <pre>untouched : {{ mSubtitle.untouched | json }}</pre>
                   <pre>pristine  : {{ mSubtitle.pristine | json }}</pre>
                   <pre>dirty     : {{ mSubtitle.dirty | json }}</pre>
+                  <pre>valid     : {{ mSubtitle.valid | json }}</pre>
+                  <pre>invalid   : {{ mSubtitle.invalid | json }}</pre>
                   <pre>errors    : {{ mSubtitle.errors | json }}</pre>
                 </span>
               </div>
