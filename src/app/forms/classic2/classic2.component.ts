@@ -15,7 +15,7 @@ export class Classic2Component implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
     title: ['Hello', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      subtitle: ['World', [Validators.required]],
+    group1: this.fb.group({ subtitle: ['World', [Validators.required]] })
     })
   }
   // (click)="setDisable(form.get('subtitle'))"
