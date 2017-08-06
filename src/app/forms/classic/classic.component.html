@@ -58,9 +58,9 @@
               </div>
             </div>
           </fieldset>
-          <fieldset>
-            <div class="form-group" *ngFor="let i of addresses">
-              <label for="input-id-1" class="col-sm-2 control-label">地址{{i}}</label>
+          <fieldset ngModelGroup="group1" *ngFor="let addr of this.data_address_len; let i=index">
+            <div class="form-group">
+              <label for="input-id-1" class="col-sm-2 control-label">地址{{ i+ 1}}</label>
               <div class="col-sm-10">
                 <input id="input-id-1" type="text" class="form-control" name="address{{i}}" [(ngModel)]="data.address[i]">
               </div>
