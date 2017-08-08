@@ -10,6 +10,7 @@ export class CardsComponent implements OnInit {
   type = '';
   public action1: string = '';
   public action2: string = '';
+  counter: number = 250;
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
@@ -28,6 +29,10 @@ export class CardsComponent implements OnInit {
       this.action2 = params['num']  //QueryString
     })
 
+  }
+
+  addCounter() {
+    this.counter++;
   }
 
 }
