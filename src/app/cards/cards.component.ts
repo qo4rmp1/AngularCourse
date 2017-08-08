@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BlockComponent } from '../block/block.component';
 
 @Component({
   selector: 'app-cards',
@@ -11,6 +12,9 @@ export class CardsComponent implements OnInit {
   public action1: string = '';
   public action2: string = '';
   counter: number = 250;
+
+  @ViewChild(BlockComponent)
+  block: BlockComponent;
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
@@ -35,4 +39,7 @@ export class CardsComponent implements OnInit {
     this.counter++;
   }
 
+  ngAfterViewInit() {
+    this.block.title = '123';
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-block',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockComponent implements OnInit {
 
+  @ViewChild('titleElement')
+  titleElement: ElementRef;
+
+  title= 'Sky red';
   constructor() { }
 
   ngOnInit() {
