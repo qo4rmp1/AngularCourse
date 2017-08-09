@@ -11,7 +11,6 @@ export class CardsComponent implements OnInit {
   type = '';
   public action1: string = '';
   public action2: string = '';
-  counter: number = 250;
 
   @ViewChild(BlockComponent)
   block: BlockComponent;
@@ -35,9 +34,7 @@ export class CardsComponent implements OnInit {
 
   }
 
-  addCounter() {
-    this.counter++;
-  }
+
 
 
   //使用元件型指令，一定要寫在這邊
