@@ -31,7 +31,7 @@ export class CardsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.action2 = params['num']  //QueryString
     })
-
+    console.log(`cards元件 執行ngOnInit`);
   }
 
 
