@@ -14,6 +14,10 @@ export class PluseoneDirective {
     console.dir(this.el.nativeElement);
   }
 
+  /*
+  @HostListener:綁定事件
+  @HostBinding:綁定Html Attribute
+  */
   //(click)="addCounter()"
   @HostListener('click', [''])
   addCounter() {
