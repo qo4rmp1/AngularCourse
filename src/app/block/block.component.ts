@@ -15,5 +15,11 @@ export class BlockComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //了解執行順序
+  ngAfterContentInit() {
+    console.log(`block元件 執行ngAfterContentInit`);
+  }
+  ngAfterViewInit() {
+    console.log(`block元件 執行ngAfterViewInit:顯示block元件的title = ${this.titleElement.nativeElement.innerHTML}`);
+  }
 }

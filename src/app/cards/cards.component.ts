@@ -39,7 +39,16 @@ export class CardsComponent implements OnInit {
     this.counter++;
   }
 
-  ngAfterViewInit() {
+
+  //使用元件型指令，一定要寫在這邊
+  //了解執行順序
+  //上一個步驟bugfix:修正ngAfterContentInit
+  ngAfterContentInit() {
+    console.log(`cards元件 執行ngAfterContentInit:cards元件 修改 block元件的title`);
     this.block.title = '123';
+  }
+
+  ngAfterViewInit() {
+    console.log(`cards元件 執行ngAfterViewInit`);
   }
 }
