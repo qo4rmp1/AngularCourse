@@ -16,4 +16,7 @@ export class FlotComponent implements OnInit {
 
   }
 
+  debug() {
+    console.log(new Date());
+  }
 }
