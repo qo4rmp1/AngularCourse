@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FlotCharts } from './init-flotcharts';
 
 @Component({
@@ -8,12 +8,12 @@ import { FlotCharts } from './init-flotcharts';
 })
 export class FlotComponent implements OnInit {
 
-  constructor() { }
+  constructor(private zone: NgZone) { }
 
   ngOnInit() {
-
+    this.zone.runOutsideAngular(() => {
     $(FlotCharts);
-
+    })
   }
 
   debug() {
